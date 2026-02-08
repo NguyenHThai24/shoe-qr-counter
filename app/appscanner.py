@@ -1,12 +1,11 @@
-import cv2
+from pyzbar.pyzbar import decode
 
-class Camera:
-    def __init__(self):
-        self.cap = cv2.VideoCapture(0)
+class QRScanner:
+    def scan(self, frame):
+        qr_codes = decode(frame)
+        results = []
 
-    def read(self):
-        return self.cap.read()
+        for qr in qr_codes:
+            results.append(qr.data.decode("utf-8"))
 
-    def release(self):
-        self.cap.release()
-        cv2.destroyAllWindows()
+        return results
