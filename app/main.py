@@ -1,8 +1,9 @@
 import cv2
+
+
 from app.camera import Camera
 from app.scanner import QRScanner
 from app.database import Database
-
 camera = Camera()
 scanner = QRScanner()
 database = Database()
